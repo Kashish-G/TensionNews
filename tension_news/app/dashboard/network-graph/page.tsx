@@ -180,7 +180,7 @@ const NetworkGraph = () => {
   };
 
   return (
-    <div>
+    <div >
       <div>NetworkGraph</div>
       <Select onValueChange={handleTypeChange}>
         <SelectTrigger className="w-[180px]">

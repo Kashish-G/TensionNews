@@ -110,7 +110,14 @@ def Graph_networkx(threshold, num_rows,similarity_matrix):
     data1 = nx.node_link_data(G)
     json_filename = 'graph_data_from_flask.json'
     data1['clusters'] = {"Clusters": partition}
-    
+    data1['nodes'] = [
+        {
+            'id': node['id'],
+            'title': str(node['title']),
+            'cluster': node['cluster']
+        }
+        for node in data1['nodes']
+    ]
     with open(json_filename, 'w') as json_file:
         json.dump(data1, json_file, indent=2)
 
